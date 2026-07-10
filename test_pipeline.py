@@ -64,4 +64,4 @@ print("\nMatched Skills:")
 print(result["matched_skills"])
 
 print("\nMissing Skills:")
-print(result["missing skills"])
+print(result["missing_skills"])

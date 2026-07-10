@@ -15,7 +15,7 @@ def calculate_tfidf_similarity(resume_text, job_text):
     vectorizer = TfidfVectorizer(stop_words='english')
     tfidf_matrix = vectorizer.fit_transform(texts)
     similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
-    return round(similarity) * 100, 2
+    return round(float(similarity) * 100, 2)
 
 def calculate_skill_match(job_skills, resume_skills):
     job_set = set([str(skill).lower().strip() for skill in job_skills])
@@ -71,19 +71,21 @@ def match_resume_to_job(resume_text, job_text, job_skills, resume_skills):
 
     tfidf_score = calculate_tfidf_similarity(resume_text_clean, job_text_clean)
 
-    skill_score, exact_matched_skills, exact_matched_skills = calculate_skill_match(job_skills, resume_skills)
+    skill_score, exact_matched_skills, exact_missing_skills = calculate_skill_match(
+        job_skills, resume_skills
+    )
 
-    fuzzy_score, fuzzy_matched_skills, fuzzy_missing_skills = calculate_fuzzy_skill_match(job_skills, resume_skills)
+    fuzzy_score, fuzzy_matched_skills, fuzzy_missing_skills = calculate_fuzzy_skill_match(
+        job_skills, resume_skills
+    )
 
     final_score = calculate_final_score(tfidf_score, skill_score, fuzzy_score)
 
     return {
         "tfidf_score": tfidf_score,
-        "excact_skill_score": skill_score,
+        "exact_skill_score": skill_score,
         "fuzzy_skill_score": fuzzy_score,
         "final_score": final_score,
         "matched_skills": fuzzy_matched_skills,
         "missing_skills": fuzzy_missing_skills
-    } 
-    
-
+    }
