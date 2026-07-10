@@ -1,0 +1,13 @@
+John Doe
+Python Developer
+
+Skills:
+Python, Flask, Django, REST API, SQL, Git, HTML, CSS, JavaScript, Problem Solving
+
+Experience:
+Worked on Flask and Django web applications.
+Built REST APIs and connected MySQL databases.
+Used Git for version control and worked on backend development projects.
+
+Education:
+Bachelor in Computer Science
