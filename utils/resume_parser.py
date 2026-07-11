@@ -10,10 +10,17 @@ def extract_text_from_pdf(file_path):
     text = ""
     with pdfplumber.open(file_path) as pdf:
         for page in pdf.pages:
-            page_text = page.extract_text
+            page_text = page.extract_text()
 
             if page_text:
                 text += page_text + "\n"
+    
+    if not text.strip():
+        raise ValueError(
+            "No readable text found. This pdf may be scanned."
+        )
+    
+    return text
 
 def extract_text_from_docx(file_path):
     document = Document(file_path)
@@ -36,5 +43,3 @@ def extract_resume_text(file_path):
         return extract_text_from_docx(file_path)
     else:
         raise ValueError("Unsupported file format.")
-    
-    raise ValueError("Unsupported file format. Use .txt for now.")

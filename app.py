@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # config
 UPLOAD_FOLDER = os.path.join("uploads", "resumes")
-ALLOWED_EXTENSIONS = {"txt"}
+ALLOWED_EXTENSIONS = {"txt", "pdf", "docx"}
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -39,7 +39,7 @@ def analyze():
         return "No file selected."
     
     if not job_text:
-        return "Only .txt resume files are supported for now."
+        return "Job Description is required."
     
     # save uploaded file
     filename = secure_filename(file.filename)
@@ -66,6 +66,7 @@ def analyze():
             job_skills=job_skills,
             resume_skills=resume_skills
         )
+        print(result)
 
         return render_template(
             "result.html",
@@ -82,8 +83,8 @@ def analyze():
             missing_skills = result['missing_skills']
         )
     except Exception as e:
+        print(e)
         return f"Error while processing resume: {str(e)}"
-
 
 # run app
 if __name__ == "__main__":
