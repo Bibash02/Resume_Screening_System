@@ -1,0 +1,39 @@
+Lab Assignment
+problem solving
+1.write a python program for the implementation of vacuum cleaner
+2.write a python program for the implementation of depth first search(DFS)
+3.write a python program for the implementation of breadth first search(BFS)
+4.write a python program for the implementation of uniform cost search
+5.write a python program for the implementation of greedy best first search
+6.write a python program for the implementation of A* search
+7.write a python program to implement N-Queen problem
+8.Implement Minimax for Tic-Tac-Toe.
+9.Implement Alpha-Beta Pruning.
+10.Solve a Graph Coloring problem using four colors.
+
+Knowledge representation
+1.Write a program in Prolog to categorize male and female students in class
+2.Write a program in Prolog to find max and min of two numbers
+3.Find the factorial of number using recursion in Prolog
+4.Write a prolog program to represent few basic facts and perform queries (Elephant is an animal. Elephant is bigger than horse) etc.
+
+5.Represent following facts using prolog: 
+	If a student studies they will pass the exam. 
+	If the student pass their exam they will be happy. 
+	Radha studied for the exam. 
+	Rakesh studied for the exam. 
+	Anish studied for the exam. 
+	Rekha did not study for her exam. 
+	Bibek did not study for the exam 
+
+	Using the facts, answer following: 
+	i. Did Anish pass? 
+	ii. List all the students that passed.
+	iii. Did Rekha study?
+	iv. List all the students that did not study.
+
+
+machine learning and neural network
+1.Write a python program to implement AND, OR, NOT and XOR
+2.write a python program to illustrate working of backpropagation algorithm 
+

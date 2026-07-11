@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Screening System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Resume Screening + Job Matching</h1>
+        <p class="subtitle">Upload a resume and compare it with a job description.</p>
+
+        <form action="/analyze" method="POST" enctype="multipart/form-data" class="card">
+            <label for="resume">Upload Resume (.txt only for now)</label>
+            <input type="file" name="resume" id="resume" accept=".txt" required>
+
+            <label for="job_text">Paste Job Description</label>
+            <textarea name="job_text" id="job_text" rows="12" placeholder="Paste the job description here..." required></textarea>
+
+            <button type="submit">Analyze Resume</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Analysis Result</h1>
+
+        <div class="card">
+            <h2>Predicted Role</h2>
+            <p class="highlight">{{ predicted_role }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Resume Skills</h2>
+            <div class="skills">
+                {% for skill in resume_skills %}
+                    <span class="tag">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Job Skills</h2>
+            <div class="skills">
+                {% for skill in job_skills %}
+                    <span class="tag">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Matching Scores</h2>
+            <p><strong>TF-IDF Score:</strong> {{ tfidf_score }}</p>
+            <p><strong>Exact Skill Score:</strong> {{ exact_skill_score }}</p>
+            <p><strong>Fuzzy Skill Score:</strong> {{ fuzzy_skill_score }}</p>
+            <p><strong>Final Match Score:</strong> <span class="highlight">{{ final_score }}</span></p>
+        </div>
+
+        <div class="card">
+            <h2>Matched Skills</h2>
+            <div class="skills">
+                {% for skill in matched_skills %}
+                    <span class="tag success">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Missing Skills</h2>
+            <div class="skills">
+                {% for skill in missing_skills %}
+                    <span class="tag danger">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Resume Text Preview</h2>
+            <pre>{{ resume_text[:2000] }}</pre>
+        </div>
+
+        <div class="back-link">
+            <a href="/">← Analyze another resume</a>
+        </div>
+    </div>
+</body>
+</html>
